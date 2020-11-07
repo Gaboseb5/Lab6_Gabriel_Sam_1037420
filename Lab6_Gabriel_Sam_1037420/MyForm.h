@@ -452,63 +452,7 @@ private: System::Void btnrectangulo_Click(System::Object^ sender, System::EventA
 
 
 }
-	   void DrawNode(Graphics^ canvas, int posx, int posy, int type, double area, double perimeter, double height, double width,double lon) {
-		   Brush^ brush = gcnew SolidBrush(Color::Red);
-		   Brush^ brushstring = gcnew SolidBrush(Color::White);
-		   System::Drawing::Pen^ pen;
-		   System::Drawing::Font^ fuente = gcnew System::Drawing::Font("Arial", 10, FontStyle::Bold);
-		   
-		   
-		   switch (type)
-		   {
-		   case 1: {
-			   canvas->FillEllipse(brush, RectangleF(posx, posy, width * 5, width * 5));
-		   }break;
-		   case 2: {
-			   canvas->FillRectangle(brush, RectangleF(posx, posy, width * 5, height * 5));
-		   }break;
-		   case 3: {
-			   
-			   
-			 
-
-			   Point p1(posx +20 + width, posy +60);
-			   Point p2(posx + 40 + width, posy + 60);
-			   Point p3(posx + 30 + width, posy  + 30 - height);
-			   Point p4(posx + 20 + width, posy + 60);
-			   array <System::Drawing::Point>^ point = {p1,p2,p3,p4};
-			   
-			   canvas->FillPolygon(brush, point);
-			  
-			   
-			   
-			   
-		   }break;
-		   case 4: {
-
-			   
-
-			   Point p1(posx + 100 + width , posy + 60 );
-			   Point p2(posx + 120 + width , posy + 60 );
-			   Point p3(posx + 140 + width , posy + 30 );
-			   Point p4(posx + 110 + width, posy + 10);
-			   Point p5(posx + 80 + width , posy + 30 );
-			   Point p6(posx + 100 + width, posy + 60);
-			 
-			   array <System::Drawing::Point>^ point = { p1,p2,p3,p4,p5,p6};
-			   canvas->FillPolygon(brush, point);
-		
-
-
-		   }break;
-		   default:
-			   break;
-		   }
-		   richTextBox1->Text = " ";
-		   richTextBox1->Text = richTextBox1->Text + "\nArea: " + area + ". Perimetro: " + perimeter;
-		  
-		   canvas->DrawString("Area: " + area + "Perimetro: " + perimeter, fuente, brushstring, posx + 1, posy + 20);
-	   }
+	  
 private: System::Void btntriangulo_Click(System::Object^ sender, System::EventArgs^ e) {
 	
 	if ((txttrialtura->Text->Trim() != "") && (txttribase->Text->Trim() != "") && (txttrilado->Text->Trim()!="")) {
@@ -566,5 +510,66 @@ private: System::Void btnpentagono_Click(System::Object^ sender, System::EventAr
 		MessageBox::Show("Pentagono insertado exitosamente, cantidad de elementos: " + myFigureList->count, "Insersión correcta", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
 }
+	   void DrawNode(Graphics^ canvas, int posx, int posy, int type, double area, double perimeter, double height, double width, double lon) {
+		   Brush^ brush = gcnew SolidBrush(Color::Red);
+		   Brush^ brush1 = gcnew SolidBrush(Color::Navy);
+		   Brush^ brush2 = gcnew SolidBrush(Color::Fuchsia);
+		   Brush^ brush3 = gcnew SolidBrush(Color::Green);
+		   Brush^ brushstring = gcnew SolidBrush(Color::White);
+		   System::Drawing::Pen^ pen;
+		   System::Drawing::Font^ fuente = gcnew System::Drawing::Font("Arial", 10, FontStyle::Bold);
+
+
+		   switch (type)
+		   {
+		   case 1: {
+			   canvas->FillEllipse(brush, RectangleF(posx, posy, width * 5, width * 5));
+		   }break;
+		   case 2: {
+			   canvas->FillRectangle(brush1, RectangleF(posx, posy, width * 5, height * 5));
+		   }break;
+		   case 3: {
+
+
+
+
+			   Point p1(posx + 20 + width, posy + 60);
+			   Point p2(posx + 40 + width, posy + 60);
+			   Point p3(posx + 30 + width, posy + 30 - height);
+			   Point p4(posx + 20 + width, posy + 60);
+			   array <System::Drawing::Point>^ point = { p1,p2,p3,p4 };
+
+			   canvas->FillPolygon(brush2, point);
+
+
+
+
+
+		   }break;
+		   case 4: {
+
+
+
+			   Point p1(posx + 100 + width, posy + 60);
+			   Point p2(posx + 120 + width, posy + 60);
+			   Point p3(posx + 140 + width, posy + 30);
+			   Point p4(posx + 110 + width, posy + 10);
+			   Point p5(posx + 80 + width, posy + 30);
+			   Point p6(posx + 100 + width, posy + 60);
+
+			   array <System::Drawing::Point>^ point = { p1,p2,p3,p4,p5,p6 };
+			   canvas->FillPolygon(brush3, point);
+
+
+
+		   }break;
+		   default:
+			   break;
+		   }
+		   richTextBox1->Text = " ";
+		   richTextBox1->Text = richTextBox1->Text + "\nArea: " + area + ". Perimetro: " + perimeter;
+
+		   canvas->DrawString("Area: " + area + "Perimetro: " + perimeter, fuente, brushstring, posx + 1, posy + 20);
+	   }
 };
 }
