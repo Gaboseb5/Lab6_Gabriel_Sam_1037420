@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 #include "Doublelinkedlist.h";
 #include "Node.h";
 #include "Figurasgeometricas.h";
@@ -474,10 +473,8 @@ private: System::Void btnrectangulo_Click(System::Object^ sender, System::EventA
 			   Point p2(40, 60);
 			   Point p3(30, 30);
 			   Point p4(20, 60);
-			   canvas->DrawLine(Pens::Red, p1, p2);
-			   canvas->DrawLine(Pens::Red, p2, p3);
-			   canvas->DrawLine(Pens::Red, p3, p4);
-			   
+			   array <System::Drawing::Point>^ point = {p1,p2,p3,p4};
+			   canvas->FillPolygon(brush, point);
 			   
 		   }break;
 		   case 4: {
@@ -490,12 +487,10 @@ private: System::Void btnrectangulo_Click(System::Object^ sender, System::EventA
 			   Point p4(110, 10);
 			   Point p5(80, 30);
 			   Point p6(100, 60);
-			   
-			   canvas->DrawLine(Pens::Red, p1, p2);
-			   canvas->DrawLine(Pens::Red, p2, p3);
-			   canvas->DrawLine(Pens::Red, p3, p4);
-			   canvas->DrawLine(Pens::Red, p4, p5);
-			   canvas->DrawLine(Pens::Red, p5, p6);
+			   array <System::Drawing::Point>^ point = { p1,p2,p3,p4,p5,p6};
+			   canvas->FillPolygon(brush, point);
+		
+
 
 		   }break;
 		   default:
