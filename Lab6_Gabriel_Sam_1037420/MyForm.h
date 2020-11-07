@@ -469,24 +469,32 @@ private: System::Void btnrectangulo_Click(System::Object^ sender, System::EventA
 		   }break;
 		   case 3: {
 			   
-			   Point p1(20, 60);
-			   Point p2(40, 60);
-			   Point p3(30, 30);
-			   Point p4(20, 60);
+			   
+			 
+
+			   Point p1(posx +20 + width, posy +60);
+			   Point p2(posx + 40 + width, posy + 60);
+			   Point p3(posx + 30 + width, posy  + 30 - height);
+			   Point p4(posx + 20 + width, posy + 60);
 			   array <System::Drawing::Point>^ point = {p1,p2,p3,p4};
+			   
 			   canvas->FillPolygon(brush, point);
+			  
+			   
+			   
 			   
 		   }break;
 		   case 4: {
 
-			   //canvas->FillRectangle(brush, RectangleF(posx, posy, width * 5, height * 5));
+			   
 
-			   Point p1 (100, 60);
-			   Point p2(120, 60);
-			   Point p3(140, 30);
-			   Point p4(110, 10);
-			   Point p5(80, 30);
-			   Point p6(100, 60);
+			   Point p1(posx + 100 + width , posy + 60 );
+			   Point p2(posx + 120 + width , posy + 60 );
+			   Point p3(posx + 140 + width , posy + 30 );
+			   Point p4(posx + 110 + width, posy + 10);
+			   Point p5(posx + 80 + width , posy + 30 );
+			   Point p6(posx + 100 + width, posy + 60);
+			 
 			   array <System::Drawing::Point>^ point = { p1,p2,p3,p4,p5,p6};
 			   canvas->FillPolygon(brush, point);
 		
@@ -499,10 +507,10 @@ private: System::Void btnrectangulo_Click(System::Object^ sender, System::EventA
 		   richTextBox1->Text = " ";
 		   richTextBox1->Text = richTextBox1->Text + "\nArea: " + area + ". Perimetro: " + perimeter;
 		  
-		   canvas->DrawString("Area: " + area, fuente, brushstring, posx + 1, posy + 20);
+		   canvas->DrawString("Area: " + area + "Perimetro: " + perimeter, fuente, brushstring, posx + 1, posy + 20);
 	   }
 private: System::Void btntriangulo_Click(System::Object^ sender, System::EventArgs^ e) {
-
+	
 	if ((txttrialtura->Text->Trim() != "") && (txttribase->Text->Trim() != "") && (txttrilado->Text->Trim()!="")) {
 		Figurasgeometricas* newTriangulo = new Triangulo();
 		newTriangulo->height = Convert::ToDouble(txttrialtura->Text);
@@ -531,7 +539,7 @@ private: System::Void btntriangulo_Click(System::Object^ sender, System::EventAr
 }
 
 private: System::Void btnpentagono_Click(System::Object^ sender, System::EventArgs^ e) {
-
+	
 	if ((txtpenapotema->Text->Trim() != "") && (txtpenlado->Text->Trim() != "")) {
 		Figurasgeometricas* newPentagono = new Pentagono();
 		newPentagono->height = Convert::ToDouble(txtpenapotema->Text);
@@ -547,6 +555,7 @@ private: System::Void btnpentagono_Click(System::Object^ sender, System::EventAr
 
 			for (int i = 0; i < myFigureList->count; i++) {
 				Figurasgeometricas* actual = temp->value;
+				
 				DrawNode(pnfiguras->CreateGraphics(), i * 100, 20, actual->type, actual->area, actual->perimeter, actual->height, actual->width,actual->lon);
 				temp = temp->next;
 			}
