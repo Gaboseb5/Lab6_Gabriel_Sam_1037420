@@ -469,19 +469,33 @@ private: System::Void btnrectangulo_Click(System::Object^ sender, System::EventA
 			   canvas->FillRectangle(brush, RectangleF(posx, posy, width * 5, height * 5));
 		   }break;
 		   case 3: {
-			  
-			   canvas->FillRectangle(brush, RectangleF(posx, posy, width * 5, height * 5));
-			   //canvas->FillPolygon();
 			   
-
+			   Point p1(20, 60);
+			   Point p2(40, 60);
+			   Point p3(30, 30);
+			   Point p4(20, 60);
+			   canvas->DrawLine(Pens::Red, p1, p2);
+			   canvas->DrawLine(Pens::Red, p2, p3);
+			   canvas->DrawLine(Pens::Red, p3, p4);
+			   
+			   
 		   }break;
 		   case 4: {
 
-			   canvas->FillRectangle(brush, RectangleF(posx, posy, width * 5, height * 5));
-			   //canvas->FillPolygon();
-			   
+			   //canvas->FillRectangle(brush, RectangleF(posx, posy, width * 5, height * 5));
 
+			   Point p1 (100, 60);
+			   Point p2(120, 60);
+			   Point p3(140, 30);
+			   Point p4(110, 10);
+			   Point p5(90, 30);
+			   Point p6(100, 60);
 			   
+			   canvas->DrawLine(Pens::Red, p1, p2);
+			   canvas->DrawLine(Pens::Red, p2, p3);
+			   canvas->DrawLine(Pens::Red, p3, p4);
+			   canvas->DrawLine(Pens::Red, p4, p5);
+			   canvas->DrawLine(Pens::Red, p5, p6);
 
 		   }break;
 		   default:
