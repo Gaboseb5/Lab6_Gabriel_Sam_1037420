@@ -488,7 +488,7 @@ private: System::Void btnrectangulo_Click(System::Object^ sender, System::EventA
 			   Point p2(120, 60);
 			   Point p3(140, 30);
 			   Point p4(110, 10);
-			   Point p5(90, 30);
+			   Point p5(80, 30);
 			   Point p6(100, 60);
 			   
 			   canvas->DrawLine(Pens::Red, p1, p2);
